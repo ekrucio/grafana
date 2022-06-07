@@ -1,15 +1,20 @@
 {
+  "linterOptions": {
+    "exclude": ["src/**", "components/**", "*", "/"]
+  },
   "compilerOptions": {
     "jsx": "react",
     "baseUrl": "public/",
     "outDir": "public/dist",
     "rootDirs": ["public/"],
     "allowJs": true,
+    "checkJs": false,
     "strict": true,
     "resolveJsonModule": true,
     "useUnknownInCatchVariables": false,
     "incremental": true,
-    "tsBuildInfoFile": "./tsconfig.tsbuildinfo"
+    "tsBuildInfoFile": "./tsconfig.tsbuildinfo",
+    "skipLibCheck": true
   },
   "extends": "@grafana/tsconfig/base.json",
   "include": [

@@ -153,6 +153,7 @@ func NewSlackNotifier(config *SlackConfig, t *template.Template) *SlackNotifier 
 // slackMessage is the slackMessage for sending a slack notification.
 type slackMessage struct {
 	Channel     string                   `json:"channel,omitempty"`
+	Text        string                   `json:"text"`
 	Username    string                   `json:"username,omitempty"`
 	IconEmoji   string                   `json:"icon_emoji,omitempty"`
 	IconURL     string                   `json:"icon_url,omitempty"`
@@ -276,6 +277,7 @@ func (sn *SlackNotifier) buildSlackMessage(ctx context.Context, as []*types.Aler
 	ruleURL := joinUrlPath(sn.tmpl.ExternalURL.String(), "/alerting/list", sn.log)
 
 	req := &slackMessage{
+		Text:      tmpl(sn.Title),
 		Channel:   tmpl(sn.Recipient),
 		Username:  tmpl(sn.Username),
 		IconEmoji: tmpl(sn.IconEmoji),

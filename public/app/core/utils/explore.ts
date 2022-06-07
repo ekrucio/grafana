@@ -325,6 +325,7 @@ export function updateHistory<T extends DataQuery>(
   });
 
   if (updatedHistory.length > MAX_HISTORY_ITEMS) {
+    console.log('chushki');
     updatedHistory = updatedHistory.slice(0, MAX_HISTORY_ITEMS);
   }
 

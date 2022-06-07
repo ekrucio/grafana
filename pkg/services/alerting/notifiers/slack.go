@@ -291,6 +291,7 @@ func (sn *SlackNotifier) Notify(evalContext *alerting.EvalContext) error {
 		attachment["image_url"] = imageURL
 	}
 	body := map[string]interface{}{
+		"text":    msg,
 		"channel": sn.recipient,
 		"attachments": []map[string]interface{}{
 			attachment,
